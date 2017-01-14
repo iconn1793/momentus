@@ -23,6 +23,8 @@ class TestViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - UI Updates
+    
     private func _updateButtonUI() {
         _testButton.setTitle("Listen", for: .normal)
         _testButton.layer.cornerRadius = 5
@@ -32,6 +34,12 @@ class TestViewController: UIViewController {
     private func _updateLabelText(newText: String) {
         _statusLabel.text = newText
     }
+    
+    private func _listenForLockScreenChange() {
+        
+    }
+    
+    // MARK: - Actions
 
     @IBAction func testButtonAction() {
         _updateLabelText(newText: "Im listening!")

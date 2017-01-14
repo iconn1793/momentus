@@ -12,6 +12,7 @@
 		AE0E210E1E2A976500B704F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE0E210C1E2A976500B704F5 /* Main.storyboard */; };
 		AE0E21101E2A976500B704F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE0E210F1E2A976500B704F5 /* Assets.xcassets */; };
 		AE0E21131E2A976500B704F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE0E21111E2A976500B704F5 /* LaunchScreen.storyboard */; };
+		AE0E211D1E2AABDD00B704F5 /* GlobalTypealiases .swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0E211C1E2AABDD00B704F5 /* GlobalTypealiases .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		AE0E210F1E2A976500B704F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE0E21121E2A976500B704F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE0E21141E2A976500B704F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE0E211C1E2AABDD00B704F5 /* GlobalTypealiases .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GlobalTypealiases .swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				AE0E21081E2A976500B704F5 /* AppDelegate.swift */,
 				AE0E210A1E2A976500B704F5 /* TestViewController.swift */,
+				AE0E211C1E2AABDD00B704F5 /* GlobalTypealiases .swift */,
 				AE0E211A1E2A9DAD00B704F5 /* Storyboards */,
 				AE0E211B1E2A9DCD00B704F5 /* Assets */,
 				AE0E21141E2A976500B704F5 /* Info.plist */,
@@ -155,6 +158,7 @@
 			files = (
 				AE0E210B1E2A976500B704F5 /* TestViewController.swift in Sources */,
 				AE0E21091E2A976500B704F5 /* AppDelegate.swift in Sources */,
+				AE0E211D1E2AABDD00B704F5 /* GlobalTypealiases .swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +324,7 @@
 				AE0E21191E2A976500B704F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
