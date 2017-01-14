@@ -10,8 +10,9 @@ import Foundation
 
 internal let SERIAL_QUEUE = DispatchQueue(label: "com.EconnHackathon.serial_queue")
 
-internal func runOnSerialQueue(block: @escaping ()->Void) {
-    SERIAL_QUEUE.async {
+internal func runOnSerialQueue(block: ()->Void) {
+    SERIAL_QUEUE.sync {
         block()
     }
 }
+
