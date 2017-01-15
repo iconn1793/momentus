@@ -10,7 +10,7 @@ import UIKit
 
 let LockStateChangedNotification = Notification.Name(rawValue: "lock_state_changed")
 
-class TestViewController: UIViewController {
+class ActiveSessionViewController: UIViewController {
 
     //MARK: Properties
     @IBOutlet weak var _statusLabel: UILabel!
