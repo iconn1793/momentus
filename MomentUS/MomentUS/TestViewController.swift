@@ -8,6 +8,8 @@
 
 import UIKit
 
+let LockStateChangedNotification = Notification.Name(rawValue: "lock_state_changed")
+
 class TestViewController: UIViewController {
 
     //MARK: Properties
@@ -35,18 +37,24 @@ class TestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         _updateButtonUI()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(_onAppEnterBackground),
+            name: NSNotification.Name.UIApplicationDidEnterBackground,
+            object: nil
+        )
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     private func _listenForDeviceActivity() {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(_updateLockScreenStatus),
-            name: Notification.Name(rawValue: "lock_state_changed"),
+            name: LockStateChangedNotification,
             object: nil
         )
         
@@ -63,50 +71,28 @@ class TestViewController: UIViewController {
                     print("received notification: \(name!)")
                     NotificationCenter.default.post(
                         Notification(
-                            name: Notification.Name(rawValue: "lock_state_changed")
+                            name: LockStateChangedNotification
                         )
                     )
             },
-            "com.apple.springboard.hasBlankedScreen" as CFString!,
+            //"com.apple.iokit.hid.displayStatus" as CFString!,
+            //"com.apple.springboard.lockcomplete" as CFString!,
+            "com.apple.springboard.lockstate" as CFString!,
+            //"com.apple.springboard.hasBlankedScreen" as CFString!,
             nil,
             CFNotificationSuspensionBehavior.deliverImmediately
         )
-        
-        /*
-        CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
-                                        nil,
-                                        { (center: CFNotificationCenter?, observer: UnsafeMutableRawPointer?, name: CFNotificationName?, object: UnsafeRawPointer?, info: CFDictionary?) in
-                                            //self._updateLockScreenStatusMarker()
-                                            print("received notification: \(name!)")
-                                        },
-                                        "com.apple.iokit.hid.displayStatus" as CFString!,
-                                        nil,
-                                        CFNotificationSuspensionBehavior.deliverImmediately)
-        
-        CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
-                                        nil,
-                                        { (center: CFNotificationCenter?, observer: UnsafeMutableRawPointer?, name: CFNotificationName?, object: UnsafeRawPointer?, info: CFDictionary?) in
-                                            //self._updateLockScreenStatusMarker()
-                                            print("received notification: \(name!)")
-                                        },
-                                        "com.apple.springboard.lockcomplete" as CFString!,
-                                        nil,
-                                        CFNotificationSuspensionBehavior.deliverImmediately)
-        
-        CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
-                                        nil,
-                                        { (center: CFNotificationCenter?, observer: UnsafeMutableRawPointer?, name: CFNotificationName?, object: UnsafeRawPointer?, info: CFDictionary?) in
-                                            //self._updateLockScreenStatusMarker()
-                                            print("received notification: \(name!)")
-                                        },
-                                        "com.apple.springboard.lockstate" as CFString!,
-                                        nil,
-                                        CFNotificationSuspensionBehavior.deliverImmediately)
-         */
     }
 
     private func _stopListeningForDeviceActivity() {
-        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: LockStateChangedNotification,
+            object: nil)
+    }
+
+    @objc func _onAppEnterBackground() {
+        print("Say... app entered background")
     }
 
     @objc func _updateLockScreenStatus() {
@@ -116,7 +102,6 @@ class TestViewController: UIViewController {
         } else {
             print("Phone is now unlocked.")
         }
-        // MARK: - Eric You can add code here!! :) 
     }
     
     // MARK: - UI Updates
