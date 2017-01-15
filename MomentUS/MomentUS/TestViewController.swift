@@ -52,17 +52,34 @@ class TestViewController: UIViewController {
     }
     
     private func _listenForDeviceActivity() {
-        NotificationCenter.default.addObserver(self, selector: #selector(_updateLockScreenStatus), name: Notification.Name(rawValue: "lock_state_changed"), object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(_updateLockScreenStatus),
+            name: Notification.Name(rawValue: "lock_state_changed"),
+            object: nil
+        )
         
-        CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
-                                        nil,
-                                        { (center: CFNotificationCenter?, observer: UnsafeMutableRawPointer?, name: CFNotificationName?, object: UnsafeRawPointer?, info: CFDictionary?) in
-                                            print("received notification: \(name!)")
-                                            NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "lock_state_changed")))
-                                        },
-                                        "com.apple.springboard.hasBlankedScreen" as CFString!,
-                                        nil,
-                                        CFNotificationSuspensionBehavior.deliverImmediately)
+        CFNotificationCenterAddObserver(
+            CFNotificationCenterGetDarwinNotifyCenter(),
+            nil,
+            {
+                (
+                center: CFNotificationCenter?,
+                observer: UnsafeMutableRawPointer?,
+                name: CFNotificationName?,
+                object: UnsafeRawPointer?,
+                info: CFDictionary?) in
+                    print("received notification: \(name!)")
+                    NotificationCenter.default.post(
+                        Notification(
+                            name: Notification.Name(rawValue: "lock_state_changed")
+                        )
+                    )
+            },
+            "com.apple.springboard.hasBlankedScreen" as CFString!,
+            nil,
+            CFNotificationSuspensionBehavior.deliverImmediately
+        )
         
         /*
         CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
