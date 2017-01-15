@@ -107,7 +107,7 @@ class ActiveSessionViewController: UIViewController {
     // MARK: - UI Updates
 
     private func _updateButtonUI() {
-        _updateButtonText(newText: "Start Unplugged Session")
+        _updateButtonText(newText: "Create New Session")
         _unplugEventButton.layer.cornerRadius = 5
         _unplugEventButton.contentEdgeInsets = UIEdgeInsetsMake(5, 30, 5, 30)
     }
@@ -133,7 +133,7 @@ class ActiveSessionViewController: UIViewController {
     private func endUnpluggedEvent() {
         isUnplugSessionInProgress = false
         _updateLabelText(newText: "No current session")
-        _updateButtonText(newText: "Start Unplugged Session")
+        _updateButtonText(newText: "Create New Session")
         print("stop listening...")
 
         _stopListeningForDeviceActivity()
