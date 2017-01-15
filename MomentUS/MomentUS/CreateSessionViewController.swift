@@ -11,10 +11,12 @@ import UIKit
 class CreateSessionViewController: UIViewController, UITextFieldDelegate {
     //MARK: Properties
     @IBOutlet weak var sessionNameTextField: UITextField!
+    @IBOutlet weak var startSessionButton: UIButton!
 
     //MARK: UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        _updateButtonUI()
         // Handle the text field's user input through delegate callbacks
         sessionNameTextField.delegate = self
     }
@@ -43,5 +45,12 @@ class CreateSessionViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         sessionNameTextField.text = textField.text
+    }
+
+    // MARK: - UI Updates
+
+    private func _updateButtonUI() {
+        startSessionButton.layer.cornerRadius = 5
+        startSessionButton.contentEdgeInsets = UIEdgeInsetsMake(5, 30, 5, 30)
     }
 }
