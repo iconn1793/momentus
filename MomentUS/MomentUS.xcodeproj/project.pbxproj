@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A07DEB201E2C1EB7004CF40A /* CreateSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07DEB1F1E2C1EB7004CF40A /* CreateSessionViewController.swift */; };
+		A07DEB221E2C3650004CF40A /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07DEB211E2C3650004CF40A /* FriendTableViewCell.swift */; };
 		AE0E21091E2A976500B704F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0E21081E2A976500B704F5 /* AppDelegate.swift */; };
 		AE0E210B1E2A976500B704F5 /* ActiveSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0E210A1E2A976500B704F5 /* ActiveSessionViewController.swift */; };
 		AE0E210E1E2A976500B704F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE0E210C1E2A976500B704F5 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		A07DEB1F1E2C1EB7004CF40A /* CreateSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSessionViewController.swift; sourceTree = "<group>"; };
+		A07DEB211E2C3650004CF40A /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		AE0E21051E2A976500B704F5 /* MomentUS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MomentUS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE0E21081E2A976500B704F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE0E210A1E2A976500B704F5 /* ActiveSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSessionViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				AE0E21081E2A976500B704F5 /* AppDelegate.swift */,
 				AE0E210A1E2A976500B704F5 /* ActiveSessionViewController.swift */,
 				A07DEB1F1E2C1EB7004CF40A /* CreateSessionViewController.swift */,
+				A07DEB211E2C3650004CF40A /* FriendTableViewCell.swift */,
 				AE0E211C1E2AABDD00B704F5 /* GlobalTypealiases .swift */,
 				AE0E211A1E2A9DAD00B704F5 /* Storyboards */,
 				AE0E211B1E2A9DCD00B704F5 /* Assets */,
@@ -166,6 +169,7 @@
 			files = (
 				AE0E210B1E2A976500B704F5 /* ActiveSessionViewController.swift in Sources */,
 				A07DEB201E2C1EB7004CF40A /* CreateSessionViewController.swift in Sources */,
+				A07DEB221E2C3650004CF40A /* FriendTableViewCell.swift in Sources */,
 				AE0E21091E2A976500B704F5 /* AppDelegate.swift in Sources */,
 				AE0E211D1E2AABDD00B704F5 /* GlobalTypealiases .swift in Sources */,
 			);
