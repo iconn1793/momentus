@@ -10,6 +10,7 @@ import UIKit
 
 class TestViewController: UIViewController {
 
+    //MARK: Properties
     @IBOutlet weak var _statusLabel: UILabel!
     @IBOutlet weak var _unplugEventButton: UIButton!
     
@@ -29,7 +30,8 @@ class TestViewController: UIViewController {
             }
         }
     }
-    
+
+    //MARK: Controller state change handling logic
     override func viewDidLoad() {
         super.viewDidLoad()
         _updateButtonUI()
@@ -102,7 +104,11 @@ class TestViewController: UIViewController {
                                         CFNotificationSuspensionBehavior.deliverImmediately)
          */
     }
-    
+
+    private func _stopListeningForDeviceActivity() {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     @objc func _updateLockScreenStatus() {
         self.phoneIsLocked = !self.phoneIsLocked
         if self.phoneIsLocked {
@@ -143,9 +149,9 @@ class TestViewController: UIViewController {
         isUnplugSessionInProgress = false
         _updateLabelText(newText: "No current session")
         _updateButtonText(newText: "Start Unplugged Session")
-        print("listening for Lock/Unlock events...")
+        print("stop listening...")
 
-        _listenForDeviceActivity()
+        _stopListeningForDeviceActivity()
     }
 
     // MARK: - User Actions
