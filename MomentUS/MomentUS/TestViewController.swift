@@ -11,8 +11,9 @@ import UIKit
 class TestViewController: UIViewController {
 
     @IBOutlet weak var _statusLabel: UILabel!
-    @IBOutlet weak var _testButton: UIButton!
+    @IBOutlet weak var _unplugEventButton: UIButton!
     
+    private var isUnplugSessionInProgress = false
     private var lockStateOn = false
     private var phoneIsLocked: Bool {
         get{
@@ -37,18 +38,6 @@ class TestViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - UI Updates
-    
-    private func _updateButtonUI() {
-        _testButton.setTitle("Listen", for: .normal)
-        _testButton.layer.cornerRadius = 5
-        _testButton.contentEdgeInsets = UIEdgeInsetsMake(5, 30, 5, 30)
-    }
-    
-    private func _updateLabelText(newText: String) {
-        _statusLabel.text = newText
     }
     
     private func _listenForDeviceActivity() {
@@ -124,13 +113,48 @@ class TestViewController: UIViewController {
         // MARK: - Eric You can add code here!! :) 
     }
     
-    // MARK: - Actions
+    // MARK: - UI Updates
 
-    @IBAction func testButtonAction() {
-        _updateLabelText(newText: "Im listening!")
-        print("listening...")
-        
+    private func _updateButtonUI() {
+        _updateButtonText(newText: "Start Unplugged Session")
+        _unplugEventButton.layer.cornerRadius = 5
+        _unplugEventButton.contentEdgeInsets = UIEdgeInsetsMake(5, 30, 5, 30)
+    }
+
+    private func _updateButtonText(newText: String) {
+        _unplugEventButton.setTitle(newText, for: .normal)
+    }
+
+    private func _updateLabelText(newText: String) {
+        _statusLabel.text = newText
+    }
+
+    // MARK: - Controller Actions
+    private func startUnpluggedEvent() {
+        isUnplugSessionInProgress = true
+        _updateLabelText(newText: "Session in Progress... be present!")
+        _updateButtonText(newText: "End Unplugged Session")
+        print("listening for Lock/Unlock events...")
+
         _listenForDeviceActivity()
+    }
+
+    private func endUnpluggedEvent() {
+        isUnplugSessionInProgress = false
+        _updateLabelText(newText: "No current session")
+        _updateButtonText(newText: "Start Unplugged Session")
+        print("listening for Lock/Unlock events...")
+
+        _listenForDeviceActivity()
+    }
+
+    // MARK: - User Actions
+    @IBAction func toggleUnplugSession() {
+        if (isUnplugSessionInProgress) {
+            endUnpluggedEvent()
+        } else {
+            startUnpluggedEvent()
+        }
     }
 
 }
