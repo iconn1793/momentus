@@ -109,6 +109,7 @@ class ActiveSessionViewController: UIViewController, UITableViewDataSource, UITa
             print("Phone is now locked.")
         } else {
             print("Phone is now unlocked.")
+            print("Congratulations! You Lose!")
         }
     }
 
