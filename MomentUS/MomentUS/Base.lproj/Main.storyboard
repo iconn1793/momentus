@@ -79,7 +79,7 @@
                                 <rect key="frame" x="56" y="154" width="263" height="283.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="Vyt-Pi-f5d" customClass="FriendTableViewCell" customModule="MomentUS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendTableViewCell" rowHeight="60" id="Vyt-Pi-f5d" customClass="FriendTableViewCell" customModule="MomentUS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="263" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vyt-Pi-f5d" id="iRA-4I-wSI">
@@ -104,6 +104,10 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="name" destination="jwj-I6-BNY" id="Szp-Kq-63V"/>
+                                            <outlet property="profileImage" destination="dIy-Es-sHu" id="ips-7M-iFc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -128,6 +132,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="friendsTableView" destination="P7a-Nf-TqP" id="AnD-4j-k7W"/>
                         <outlet property="sessionNameTextField" destination="gYB-yk-H2F" id="eZH-9Y-64R"/>
                         <outlet property="startSessionButton" destination="5Tp-0S-ccu" id="qvR-a5-Inx"/>
                     </connections>
