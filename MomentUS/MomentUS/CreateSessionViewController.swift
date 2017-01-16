@@ -11,7 +11,6 @@ import UIKit
 class CreateSessionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     //MARK: Properties
     @IBOutlet weak var sessionNameTextField: UITextField!
-    @IBOutlet weak var startSessionButton: UIButton!
     @IBOutlet weak var friendsTableView: UITableView!
     private var friends = [Friend]()
 
@@ -36,7 +35,6 @@ class CreateSessionViewController: UIViewController, UITableViewDataSource, UITa
     //MARK: UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        _updateButtonUI()
         _loadInitialFriends()
         // Handle the friend tableView through delegate callbacks
         friendsTableView.delegate = self
@@ -78,6 +76,17 @@ class CreateSessionViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "inviteFriendsSegue" {
+            if let nextVC = segue.destination as? ActiveSessionViewController {
+                let sessionName = sessionNameTextField.text!
+                if !sessionName.isEmpty {
+                    nextVC.sessionName = sessionName
+                }
+            }
+        }
+    }
+
     /*
     // MARK: - Navigation
 
@@ -97,12 +106,5 @@ class CreateSessionViewController: UIViewController, UITableViewDataSource, UITa
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         sessionNameTextField.text = textField.text
-    }
-
-    // MARK: - UI Updates
-
-    private func _updateButtonUI() {
-        startSessionButton.layer.cornerRadius = 5
-        startSessionButton.contentEdgeInsets = UIEdgeInsetsMake(5, 30, 5, 30)
     }
 }

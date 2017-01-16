@@ -13,8 +13,11 @@ let LockStateChangedNotification = Notification.Name(rawValue: "lock_state_chang
 class ActiveSessionViewController: UIViewController {
 
     //MARK: Properties
-    @IBOutlet weak var _statusLabel: UILabel!
-    @IBOutlet weak var _unplugEventButton: UIButton!
+    @IBOutlet weak var sessionNameTextField: UILabel!
+    @IBOutlet weak var _beginButton: UIButton!
+    @IBOutlet weak var friendsTableView: UITableView!
+    private var friends = [Friend]()
+    var sessionName = "Session Name"
     
     private var isUnplugSessionInProgress = false
     private var lockStateOn = false
@@ -36,7 +39,7 @@ class ActiveSessionViewController: UIViewController {
     //MARK: Controller state change handling logic
     override func viewDidLoad() {
         super.viewDidLoad()
-        _updateButtonUI()
+        sessionNameTextField.text = sessionName
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(_onAppEnterBackground),
@@ -106,24 +109,14 @@ class ActiveSessionViewController: UIViewController {
     
     // MARK: - UI Updates
 
-    private func _updateButtonUI() {
-        _updateButtonText(newText: "Create New Session")
-        _unplugEventButton.layer.cornerRadius = 5
-        _unplugEventButton.contentEdgeInsets = UIEdgeInsetsMake(5, 30, 5, 30)
-    }
-
     private func _updateButtonText(newText: String) {
-        _unplugEventButton.setTitle(newText, for: .normal)
+        _beginButton.setTitle(newText, for: .normal)
     }
 
-    private func _updateLabelText(newText: String) {
-        _statusLabel.text = newText
-    }
 
     // MARK: - Controller Actions
     private func startUnpluggedEvent() {
         isUnplugSessionInProgress = true
-        _updateLabelText(newText: "Session in Progress... be present!")
         _updateButtonText(newText: "End Unplugged Session")
         print("listening for Lock/Unlock events...")
 
@@ -132,7 +125,6 @@ class ActiveSessionViewController: UIViewController {
 
     private func endUnpluggedEvent() {
         isUnplugSessionInProgress = false
-        _updateLabelText(newText: "No current session")
         _updateButtonText(newText: "Create New Session")
         print("stop listening...")
 
