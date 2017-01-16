@@ -17,14 +17,20 @@ class CreateSessionViewController: UIViewController, UITableViewDataSource, UITa
 
     //MARK: Private methods
     private func _createFriend(_ name: String) -> Friend {
-        guard let friend = Friend(name: name, profileImage: nil) else {
+        let photoIcon = UIImage(named: "defaultPerson")
+        guard let friend = Friend(name: name, profileImage: photoIcon) else {
             fatalError("Unable to instantiate friend")
         }
         return friend
     }
     private func _loadInitialFriends() {
         friends += [_createFriend("Eric Connelly")]
-        friendsTableView.reloadData()
+        friends += [_createFriend("Jake Horenstein")]
+        friends += [_createFriend("Jason Rose")]
+        friends += [_createFriend("Scott Connelly")]
+        friends += [_createFriend("Ian Connelly")]
+        friends += [_createFriend("Daniel David")]
+        friends += [_createFriend("Jesse Ruben")]
     }
 
     //MARK: UIViewController Methods
