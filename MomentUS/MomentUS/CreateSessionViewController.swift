@@ -32,6 +32,16 @@ class CreateSessionViewController: UIViewController, UITableViewDataSource, UITa
         friends += [_createFriend("Jesse Ruben")]
     }
 
+    private func _getInvitedFriends() -> [Friend] {
+        var invitedFriends = [Friend]()
+        for friend in friends {
+            if (friend.isInvited) {
+                invitedFriends += [friend]
+            }
+        }
+        return invitedFriends
+    }
+
     //MARK: UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,30 +82,35 @@ class CreateSessionViewController: UIViewController, UITableViewDataSource, UITa
         // Configure the cell...
         cell.name.text = friend.name
         cell.profileImage.image = friend.profileImage
+        cell.isFriendInvited.isOn = friend.isInvited
+
+        // Add a target to handle "invite" switch toggle event
+        cell.isFriendInvited.addTarget(
+            friend,
+            action: #selector(Friend.inviteFriend),
+            for: UIControlEvents.valueChanged
+        )
 
         return cell
     }
 
+    // MARK: - Navigation
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "inviteFriendsSegue" {
             if let nextVC = segue.destination as? ActiveSessionViewController {
+                // Set Session Title
                 let sessionName = sessionNameTextField.text!
                 if !sessionName.isEmpty {
                     nextVC.sessionName = sessionName
                 }
+
+                // Set the invited friends
+                print("Number of friends selected?")
+                nextVC.friends = _getInvitedFriends()
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     //MARK: UITextFieldDelegate Methods
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

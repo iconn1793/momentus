@@ -16,7 +16,7 @@ class ActiveSessionViewController: UIViewController {
     @IBOutlet weak var sessionNameTextField: UILabel!
     @IBOutlet weak var _beginButton: UIButton!
     @IBOutlet weak var friendsTableView: UITableView!
-    private var friends = [Friend]()
+    var friends = [Friend]()
     var sessionName = "Session Name"
     
     private var isUnplugSessionInProgress = false

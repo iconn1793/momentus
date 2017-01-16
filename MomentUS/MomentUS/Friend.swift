@@ -12,6 +12,8 @@ class Friend {
     //MARK: Properties
     var name: String
     var profileImage: UIImage?
+    var isInvited: Bool
+    var hasJoinedSession: Bool
 
     //MARK: Initialization
 
@@ -24,5 +26,11 @@ class Friend {
         // Initialize stored properties.
         self.name = name
         self.profileImage = profileImage
+        self.isInvited = false
+        self.hasJoinedSession = false
+    }
+
+    @objc func inviteFriend(_ isInvitedSwitch: UISwitch) {
+        isInvited = isInvitedSwitch.isOn
     }
 }
