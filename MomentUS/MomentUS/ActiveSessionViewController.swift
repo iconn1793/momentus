@@ -10,7 +10,7 @@ import UIKit
 
 let LockStateChangedNotification = Notification.Name(rawValue: "lock_state_changed")
 
-class ActiveSessionViewController: UIViewController {
+class ActiveSessionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     //MARK: Properties
     @IBOutlet weak var sessionNameTextField: UILabel!
@@ -40,6 +40,11 @@ class ActiveSessionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sessionNameTextField.text = sessionName
+
+        // Handle the friend tableView through delegate callbacks
+        friendsTableView.delegate = self
+        friendsTableView.dataSource = self
+
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(_onAppEnterBackground),
@@ -106,6 +111,36 @@ class ActiveSessionViewController: UIViewController {
             print("Phone is now unlocked.")
         }
     }
+
+    //MARK: UITableViewController Methods
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // Only 1 section: for Friends
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return friends.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Table view cells are reused and should be dequeued using a cell identifier.
+        let cellIdentifier = "InviteeTableViewCell"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? InviteeTableViewCell else {
+            fatalError("The dequeued cell is not an instance of InviteeTableViewCell.")
+        }
+        
+        // Fetches the appropriate instance for the data source layout.
+        let friend = friends[indexPath.row]
+        
+        // Configure the cell...
+        cell.name.text = friend.name
+        cell.profileImage.image = friend.profileImage
+        cell.hasJoined.isOn = false
+        
+        return cell
+    }
+
     
     // MARK: - UI Updates
 

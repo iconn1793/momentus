@@ -28,3 +28,10 @@ class FriendTableViewCell: UITableViewCell {
 
 }
 
+class InviteeTableViewCell: UITableViewCell {
+    //MARK: Properties
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var hasJoined: UISwitch!
+
+}

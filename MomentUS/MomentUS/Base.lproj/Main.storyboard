@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="height" constant="240" id="z2y-va-CXB"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttendeeTableViewCell" id="cXS-j7-fef">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InviteeTableViewCell" id="cXS-j7-fef" customClass="InviteeTableViewCell" customModule="MomentUS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cXS-j7-fef" id="YaH-cy-L0L">
@@ -60,6 +60,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wHn-1h-r6d">
+                                                    <rect key="frame" x="268" y="14" width="51" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </switch>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="HFj-dI-in6" firstAttribute="centerY" secondItem="YaH-cy-L0L" secondAttribute="centerY" id="7VY-sU-OhL"/>
@@ -69,6 +73,11 @@
                                                 <constraint firstItem="HFj-dI-in6" firstAttribute="top" secondItem="YaH-cy-L0L" secondAttribute="topMargin" constant="-4" id="zut-kq-K7g"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="hasJoined" destination="wHn-1h-r6d" id="mcr-hx-hAc"/>
+                                            <outlet property="name" destination="E0p-Y7-BPy" id="uBE-UX-b6e"/>
+                                            <outlet property="profileImage" destination="HFj-dI-in6" id="pjU-1T-Kaq"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
