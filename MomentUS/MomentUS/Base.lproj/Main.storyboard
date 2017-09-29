@@ -10,6 +10,11 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Verdana.ttf">
+            <string>Verdana</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Active Session View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -192,13 +197,15 @@
                             <constraint firstItem="k0O-Mu-4QG" firstAttribute="centerX" secondItem="K46-EI-z1B" secondAttribute="centerX" id="OgV-xx-XYe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="GJB-X3-aTA"/>
+                    <navigationItem key="navigationItem" id="GJB-X3-aTA">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="Plg-91-2lg"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SSh-7t-4vc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1009" y="136"/>
         </scene>
-        <!--Instructions-->
+        <!--View Controller-->
         <scene sceneID="9WW-8f-tC7">
             <objects>
                 <viewController id="r61-Co-aWE" sceneMemberID="viewController">
@@ -210,20 +217,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How to Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yuk-l1-8cQ">
-                                <rect key="frame" x="16" y="83" width="343" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yuk-l1-8cQ">
+                                <rect key="frame" x="106" y="94" width="163" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="wordWrap" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My6-Jc-Jmo">
-                                <rect key="frame" x="16" y="162" width="343" height="287"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <string key="text">The momentUS app is a way to have a little competition with friends and family to see who can put their phone away and be present together. Invite a group of people to an Unplugged Session, then wait for everyone to accept and put their phones away, then click Begin. Whoever succombs to the temptation to unlock their phone first, loses!</string>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My6-Jc-Jmo" userLabel="howToText">
+                                <rect key="frame" x="37.5" y="163" width="300" height="333.5"/>
+                                <mutableString key="text">The momentUS app is a way to have a little competition with friends and family to see who can put their phone away and be present together. Invite a group of people to an Unplugged Session, then wait for everyone to accept and put their phones away, then click Begin. Whoever succombs to the temptation to unlock their phone first, loses! momentUS is designed to help you stay focused and present on what you are doing and who you are with. It can help you put down your phone and break the habit of multi-tasking and distraction. You can start a focused session, during which you should put your phone away. Once you lock your screen, the session will start.</mutableString>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -233,8 +237,17 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.25070109959999998" green="0.3679112792" blue="0.4264699817" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="My6-Jc-Jmo" firstAttribute="height" secondItem="jjm-ND-OMF" secondAttribute="height" multiplier="0.5" id="A6t-cW-66R"/>
+                            <constraint firstItem="Yuk-l1-8cQ" firstAttribute="centerX" secondItem="jjm-ND-OMF" secondAttribute="centerX" id="BrR-3W-rA3"/>
+                            <constraint firstItem="My6-Jc-Jmo" firstAttribute="centerX" secondItem="jjm-ND-OMF" secondAttribute="centerX" id="Hc4-Nz-gfQ"/>
+                            <constraint firstItem="Yuk-l1-8cQ" firstAttribute="top" secondItem="Ton-0q-pSz" secondAttribute="bottom" constant="30" id="U9U-LD-ENP"/>
+                            <constraint firstItem="My6-Jc-Jmo" firstAttribute="top" secondItem="Yuk-l1-8cQ" secondAttribute="bottom" constant="30" id="Ve7-4C-aG7"/>
+                            <constraint firstItem="My6-Jc-Jmo" firstAttribute="width" secondItem="jjm-ND-OMF" secondAttribute="width" multiplier="0.8" id="jeh-jp-xTP"/>
+                            <constraint firstItem="qim-kk-Jw6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="My6-Jc-Jmo" secondAttribute="bottom" constant="40" id="qsA-jW-7cO"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Instructions" id="nkz-Sc-KcD"/>
+                    <navigationItem key="navigationItem" id="nkz-Sc-KcD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QhF-wu-wPD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
