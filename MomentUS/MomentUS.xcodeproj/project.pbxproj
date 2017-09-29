@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A07C69F41F7EF22200108407 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07C69F31F7EF22200108407 /* HomeViewController.swift */; };
+		A07C69F61F7EFC0700108407 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07C69F51F7EFC0700108407 /* NavigationController.swift */; };
 		A07DEB201E2C1EB7004CF40A /* CreateSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07DEB1F1E2C1EB7004CF40A /* CreateSessionViewController.swift */; };
 		A07DEB221E2C3650004CF40A /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07DEB211E2C3650004CF40A /* FriendTableViewCell.swift */; };
 		A07DEB241E2C39F0004CF40A /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07DEB231E2C39F0004CF40A /* Friend.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A07C69F31F7EF22200108407 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A07C69F51F7EFC0700108407 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		A07DEB1F1E2C1EB7004CF40A /* CreateSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSessionViewController.swift; sourceTree = "<group>"; };
 		A07DEB211E2C3650004CF40A /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		A07DEB231E2C39F0004CF40A /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
@@ -65,8 +69,10 @@
 				AE0E21081E2A976500B704F5 /* AppDelegate.swift */,
 				AE0E210A1E2A976500B704F5 /* ActiveSessionViewController.swift */,
 				A07DEB1F1E2C1EB7004CF40A /* CreateSessionViewController.swift */,
+				A07C69F31F7EF22200108407 /* HomeViewController.swift */,
 				A07DEB231E2C39F0004CF40A /* Friend.swift */,
 				A07DEB211E2C3650004CF40A /* FriendTableViewCell.swift */,
+				A07C69F51F7EFC0700108407 /* NavigationController.swift */,
 				AE0E211C1E2AABDD00B704F5 /* GlobalTypealiases .swift */,
 				AE0E211A1E2A9DAD00B704F5 /* Storyboards */,
 				AE0E211B1E2A9DCD00B704F5 /* Assets */,
@@ -170,11 +176,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A07C69F61F7EFC0700108407 /* NavigationController.swift in Sources */,
 				AE0E210B1E2A976500B704F5 /* ActiveSessionViewController.swift in Sources */,
 				A07DEB201E2C1EB7004CF40A /* CreateSessionViewController.swift in Sources */,
 				A07DEB221E2C3650004CF40A /* FriendTableViewCell.swift in Sources */,
 				A07DEB241E2C39F0004CF40A /* Friend.swift in Sources */,
 				AE0E21091E2A976500B704F5 /* AppDelegate.swift in Sources */,
+				A07C69F41F7EF22200108407 /* HomeViewController.swift in Sources */,
 				AE0E211D1E2AABDD00B704F5 /* GlobalTypealiases .swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
